@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grocery_tracker_app/constants.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
@@ -35,6 +34,7 @@ class Background extends StatelessWidget {
               )
             ),
             Positioned(
+              right: 0,
               child: Image.asset(
                 "assets/images/middleCircle.png",
                 width: size.width,
@@ -54,10 +54,14 @@ class Background extends StatelessWidget {
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40)
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                  backgroundColor: kPrimaryColor,
                   ),
                   onPressed: (){}, 
-                  child: Text("LOGIN"),
+                  child: const Text(
+                    "LOGIN", 
+                    style: TextStyle(color: Colors.white),
+                    ),
                   ),
         ],
       ),
