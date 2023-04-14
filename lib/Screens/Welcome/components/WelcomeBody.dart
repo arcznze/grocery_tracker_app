@@ -18,16 +18,12 @@ class WelcomeBody extends StatelessWidget {
         children: <Widget>[
           RoundedButton(
             text: "LOGIN",
-            press: () {
-              Navigator.push(
-                context, MaterialPageRoute(
-                  builder: 
-                  (context){
-                    return const LoginScreen();
-                    },
-                  ),
-                );
-              },
+            press: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
+          },
           ),
           RoundedButton(
             text: "SIGNUP",

@@ -4,7 +4,7 @@ import '../constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback  press;
   final Color color, textColor;
   const RoundedButton({
     super.key, 
@@ -27,7 +27,7 @@ class RoundedButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             backgroundColor: color,
             ),
-            onPressed: (){}, 
+            onPressed: press, 
             child: Text(
               text, 
               style: TextStyle(color: textColor),

@@ -56,7 +56,7 @@ class Background extends StatelessWidget {
                   ),
                 )),
             Positioned(
-              bottom: 50,
+              bottom: -90,
               left: 15,
               child: SvgPicture.asset(
                 "assets/icons/topIcon.svg",
