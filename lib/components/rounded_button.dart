@@ -4,7 +4,7 @@ import '../constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback  press;
   final Color color, textColor;
   const RoundedButton({
     super.key, 
@@ -18,9 +18,8 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 40),
-      margin: EdgeInsets.symmetric(vertical: 20),
-      width: size.width * 0.8,
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      width: size.width * 0.4,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: TextButton(
@@ -28,7 +27,7 @@ class RoundedButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             backgroundColor: color,
             ),
-            onPressed: (){}, 
+            onPressed: press, 
             child: Text(
               text, 
               style: TextStyle(color: textColor),
