@@ -27,6 +27,7 @@ class _MyMenuState extends State<MyMenu> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Grocery List'),
+        backgroundColor: Color.fromRGBO(255, 210, 76, 1),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
