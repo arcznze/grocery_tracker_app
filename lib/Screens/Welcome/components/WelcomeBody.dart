@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_tracker_app/Screens/login/login_screen.dart';
 import 'package:grocery_tracker_app/components/rounded_button.dart';
 import 'package:grocery_tracker_app/constants.dart';
 
@@ -17,7 +18,16 @@ class WelcomeBody extends StatelessWidget {
         children: <Widget>[
           RoundedButton(
             text: "LOGIN",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context, MaterialPageRoute(
+                  builder: 
+                  (context){
+                    return const LoginScreen();
+                    },
+                  ),
+                );
+              },
           ),
           RoundedButton(
             text: "SIGNUP",
