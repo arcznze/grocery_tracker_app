@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_tracker_app/Screens/Welcome/welcome_screen.dart';
+import 'Screens/login/login_screen.dart';
 import 'constants.dart';
 
 void main() {
@@ -16,12 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Login',
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
+        primaryColor: Colors.yellow,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: WelcomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
-
-
