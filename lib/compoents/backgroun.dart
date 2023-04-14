@@ -22,13 +22,16 @@ class Background extends StatelessWidget {
           alignment: Alignment.center,
           children: <Widget>[
             Positioned(
-              top: 0,
-              left: 0,
-              child: Image.asset(
-                topImage,
-                width: 120,
-              ),
-            ),
+                top: -100,
+                left: -120,
+                child: Container(
+                  width: 250,
+                  height: 250,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFD24C),
+                    shape: BoxShape.circle,
+                  ),
+                )),
             // Positioned(
             //   bottom: 0,
             //   right: 0,
