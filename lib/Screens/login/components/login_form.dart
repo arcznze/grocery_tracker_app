@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../../../compoents/already_have_an_account.dart';
 import '../../../constants.dart';
-import '../../Welcome/welcome_screen.dart';
+import '../../menu/menu.dart';
 
 Future<List<dynamic>> getUsers() async {
   final resp =
@@ -26,8 +26,7 @@ void tryLogin(String email, String password, BuildContext ctx) {
           }
           return element["email"] == email && element["username"] == password;
         })) // Using username as password
-          Navigator.push(
-              ctx, MaterialPageRoute(builder: (context) => WelcomeScreen()))
+          Navigator.push(ctx, MaterialPageRoute(builder: (context) => MyMenu()))
       });
 }
 
