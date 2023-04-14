@@ -1,7 +1,35 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../compoents/already_have_an_account.dart';
 import '../../../constants.dart';
+import '../../Welcome/welcome_screen.dart';
+
+Future<List<dynamic>> getUsers() async {
+  final resp =
+      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+  if (resp.statusCode == 200) {
+    return json.decode(resp.body);
+  } else {
+    throw Exception("El API no dio 200");
+  }
+}
+
+void tryLogin(String email, String password, BuildContext ctx) {
+  getUsers().then((value) => {
+        if (value.any((element) {
+          if (!element.containsKey("email") ||
+              !element.containsKey("username")) {
+            return false;
+          }
+          return element["email"] == email && element["username"] == password;
+        })) // Using username as password
+          Navigator.push(
+              ctx, MaterialPageRoute(builder: (context) => WelcomeScreen()))
+      });
+}
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -10,6 +38,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mailController = TextEditingController();
+    final passwordController = TextEditingController();
+
     return Form(
       child: Column(
         children: [
@@ -17,6 +48,7 @@ class LoginForm extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
+            controller: mailController,
             onSaved: (email) {},
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
@@ -35,6 +67,7 @@ class LoginForm extends StatelessWidget {
             child: TextFormField(
               textInputAction: TextInputAction.done,
               obscureText: true,
+              controller: passwordController,
               decoration: InputDecoration(
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -57,7 +90,9 @@ class LoginForm extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Color(0xFFFFD24C)),
               ),
-              onPressed: () {},
+              onPressed: () {
+                tryLogin(mailController.text, passwordController.text, context);
+              },
               child: Text(
                 "Login".toUpperCase(),
               ),
