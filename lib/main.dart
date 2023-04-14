@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_tracker_app/Screens/Welcome/welcome_screen.dart';
-import 'Screens/login/login_screen.dart';
-import 'constants.dart';
-
+import 'package:grocery_tracker_app/Screens/login/login_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.yellow,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: LoginScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

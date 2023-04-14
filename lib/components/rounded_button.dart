@@ -18,14 +18,14 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 40),
-      margin: EdgeInsets.symmetric(vertical: 20),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(vertical: 60),
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: TextButton(
           style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 40),
             backgroundColor: color,
             ),
             onPressed: (){}, 
